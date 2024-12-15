@@ -113,10 +113,10 @@ public class Login extends AppCompatActivity {
         Intent intent;
         switch (role) {
             case "Student":
-                intent = new Intent(Login.this, com.example.elmslayout.Main.Student_Dashboard.class);
+                intent = new Intent(Login.this, Student_Dashboard.class);
                 break;
             case "Teacher":
-                intent = new Intent(Login.this, com.example.elmslayout.Main.Teachers_Dashboard.class);
+                intent = new Intent(Login.this, Teachers_Dashboard.class);
                 break;
             case "Admin":
                 intent = new Intent(Login.this, Admin_Dashboard.class);

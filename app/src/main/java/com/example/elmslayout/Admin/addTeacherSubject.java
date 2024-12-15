@@ -134,34 +134,33 @@ public class addTeacherSubject extends AppCompatActivity {
     }
 
     // Add Subject to Student's Term using Username
+    // Add Subject and Periods to Teacher's Term using Username
     private void addSubjectToTeacher() {
         int studentPosition = teacherSpinner.getSelectedItemPosition();
         String username = usernameList.get(studentPosition);
         String term = termSpinner.getSelectedItem().toString();
         String subject = subjectSpinner.getSelectedItem().toString();
 
-        DatabaseReference studentSubjectsRef = databaseReference.child("User")
-                .child("Role").child("Teacher").child(username).child("Subjects").child(term);
+        DatabaseReference subjectRef = databaseReference.child("User")
+                .child("Role").child("Teacher").child(username)
+                .child("Subjects").child(term).child(subject);
 
         // Check for Redundancy
-        studentSubjectsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        subjectRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<String> subjects = new ArrayList<>();
                 if (snapshot.exists()) {
-                    for (DataSnapshot subjectSnapshot : snapshot.getChildren()) {
-                        String existingSubject = subjectSnapshot.getValue(String.class);
-                        subjects.add(existingSubject);
-                    }
-                }
-
-                if (subjects.contains(subject)) {
-                    showToast("Subject already added to this term.");
+                    showToast("Subject already exists for this term.");
                 } else {
-                    subjects.add(subject);
-                    studentSubjectsRef.setValue(subjects)
-                            .addOnSuccessListener(aVoid -> showToast("Subject added successfully!"))
-                            .addOnFailureListener(e -> showToast("Failed to add subject."));
+                    // Automatically add the three periods
+                    ArrayList<String> periods = new ArrayList<>();
+                    periods.add("Prelims");
+                    periods.add("Midterms");
+                    periods.add("Finals");
+
+                    subjectRef.setValue(periods)
+                            .addOnSuccessListener(aVoid -> showToast("Subject and periods added successfully!"))
+                            .addOnFailureListener(e -> showToast("Failed to add subject and periods."));
                 }
             }
 
@@ -171,6 +170,7 @@ public class addTeacherSubject extends AppCompatActivity {
             }
         });
     }
+
 
     private void populateSpinner(Spinner spinner, ArrayList<String> list) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
