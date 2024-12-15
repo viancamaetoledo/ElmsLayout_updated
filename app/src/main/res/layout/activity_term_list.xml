@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blankgrid"
+    android:orientation="vertical"
+    tools:context=".Teacher.CourseDetails.Term_list">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:clickable="true"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:id="@+id/recCard"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="5.5">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:id="@+id/recCourseImage"
+                        android:layout_weight="4"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/rec_holder"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.5"
+                        android:weightSum="2"
+                        android:background="@drawable/card_border">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Prelims"
+                                android:textSize="20sp"
+                                android:maxLines="1"
+                                android:textColor="@color/DarkRed"
+                                android:id="@+id/titlePrelim"/>
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="8dp"
+                                android:id="@+id/spinnerPrelim"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:id="@+id/recCard2"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="5.5">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:id="@+id/recCourseImage2"
+                        android:layout_weight="4"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/rec_holder"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.5"
+                        android:weightSum="2"
+                        android:background="@drawable/card_border">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Midterms"
+                                android:textSize="20sp"
+                                android:maxLines="1"
+                                android:textColor="@color/DarkRed"
+                                android:id="@+id/titleMidterm"/>
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="8dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:id="@+id/recCard3"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="5.5">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:id="@+id/recCourseImage3"
+                        android:layout_weight="4"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/rec_holder"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.5"
+                        android:weightSum="2"
+                        android:background="@drawable/card_border">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Finals"
+                                android:textSize="20sp"
+                                android:maxLines="1"
+                                android:textColor="@color/DarkRed"
+                                android:id="@+id/titleFinal"/>
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="8dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

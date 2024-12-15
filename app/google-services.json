@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1068481522608",
+    "firebase_url": "https://elmslayout-default-rtdb.firebaseio.com",
+    "project_id": "elmslayout",
+    "storage_bucket": "elmslayout.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068481522608:android:6f19d49f097283e6d9c475",
+        "android_client_info": {
+          "package_name": "com.example.elmslayout"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATi0dJ9Va_1kXk-ZLlaDafQkUzTZHQMEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

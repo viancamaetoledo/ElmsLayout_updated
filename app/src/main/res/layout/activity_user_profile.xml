@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/userbg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main.User_Profile">
+
+    <TextView
+        android:id="@+id/admin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="244dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Student Name"
+        android:textColor="@color/Black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/student_course_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Student Year and Course"
+        android:textColor="@color/Black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/admin_text" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="360dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/student_course_year">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profile_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="3"
+                android:background="@drawable/user_choice_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/profile"
+                    android:layout_width="51dp"
+                    android:layout_height="57dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.043"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/myprofile" />
+
+                <TextView
+                    android:id="@+id/term"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="My Profile"
+                    android:textColor="@color/Black"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile"
+                    app:layout_constraintStart_toEndOf="@+id/profile"
+                    app:layout_constraintTop_toTopOf="@+id/profile" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/resources_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="3"
+                android:background="@drawable/user_choice_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/resources"
+                    android:layout_width="51dp"
+                    android:layout_height="57dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.043"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/folder" />
+
+                <TextView
+                    android:id="@+id/resources_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="Resources"
+                    android:textColor="@color/Black"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/resources"
+                    app:layout_constraintStart_toEndOf="@+id/resources"
+                    app:layout_constraintTop_toTopOf="@+id/resources" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/balances_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="3"
+                android:background="@drawable/user_choice_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/balances"
+                    android:layout_width="51dp"
+                    android:layout_height="57dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.043"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/pay" />
+
+                <TextView
+                    android:id="@+id/balances_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="Balances"
+                    android:textColor="@color/Black"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/balances"
+                    app:layout_constraintStart_toEndOf="@+id/balances"
+                    app:layout_constraintTop_toTopOf="@+id/balances" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/logout_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="3"
+                android:background="@drawable/user_choice_bg"
+                android:clickable="true">
+
+                <ImageView
+                    android:id="@+id/logout"
+                    android:layout_width="51dp"
+                    android:layout_height="57dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.043"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/logout" />
+
+                <TextView
+                    android:id="@+id/logout_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="Log Out"
+                    android:textColor="@color/Black"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/logout"
+                    app:layout_constraintStart_toEndOf="@+id/logout"
+                    app:layout_constraintTop_toTopOf="@+id/logout" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="188dp"
+        android:layout_height="224dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/systemlogo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

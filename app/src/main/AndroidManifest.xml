@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/systemlogo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/systemlogo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ElmsLayout"
+        tools:targetApi="31">
+        <activity
+            android:name=".Teacher.CourseDetails.Term_list"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.Teacher_student"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.addTeacher"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.addTeacherSubject"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.addSubject"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.Teacher_annnouncement"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.Teacher_grade"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.Teacher_assignment"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.CourseDetails.Teacher_course"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Assignment.Assignment_detailed"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Assignment.Assignment_list"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Admin_Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".Main.User_Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Announcement.Announcement_Menu"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.addStudent"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Course.Handout_details"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Grade.Grade_Menu"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Assignment.Assignment_Menu"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Course.Course_Menu"
+            android:exported="false" />
+        <activity
+            android:name=".Main.Student_Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".Main.Login"
+            android:exported="false" />
+        <activity
+            android:name=".Main.Teachers_Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".Main.GetStarted"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

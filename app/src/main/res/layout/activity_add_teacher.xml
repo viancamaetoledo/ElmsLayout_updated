@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/newbg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main.Login"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="150dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:background="@drawable/solid_fill_orange_border">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Teacher"
+                android:textAlignment="center"
+                android:textColor="@color/Black"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Subject_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Program:"
+                    android:textColor="@color/Black"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/program_choices"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/orange_border"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/year_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Year:"
+                    android:textColor="@color/Black"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/year_choices"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/orange_border"/>
+            </LinearLayout>
+
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/login_fullname"
+                android:background="@drawable/orange_border"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:textSize="15sp"
+                android:hint="Full Name"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/Black"
+                android:gravity="center_vertical"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/login_username"
+                android:background="@drawable/orange_border"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:textSize="15sp"
+                android:hint="Username"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/Black"
+                android:gravity="center_vertical"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/login_email"
+                android:background="@drawable/orange_border"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:textSize="15sp"
+                android:hint="Email"
+                android:drawableLeft="@drawable/baseline_email_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/Black"
+                android:gravity="center_vertical"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/login_password"
+                android:background="@drawable/orange_border"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:textSize="15sp"
+                android:hint="Password"
+                android:drawableLeft="@drawable/baseline_lock_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/Black"
+                android:gravity="center_vertical"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/add_button"
+                android:text="ADD"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/Orange"
+                android:gravity="center"
+                android:textColor="@color/White"
+                android:fontFamily="sans-serif-black"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
