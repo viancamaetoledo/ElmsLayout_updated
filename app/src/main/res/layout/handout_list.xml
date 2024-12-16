@@ -24,7 +24,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/assign_layout"
                 android:layout_width="0dp"
-                android:layout_height="183dp"
+                android:layout_height="130dp"
                 android:layout_margin="10dp"
                 android:layout_weight="3"
                 android:background="@drawable/user_choice_bg"
@@ -36,99 +36,69 @@
                     android:layout_width="51dp"
                     android:layout_height="57dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.021"
+                    app:layout_constraintHorizontal_bias="0.024"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.266"
-                    app:srcCompat="@mipmap/qa" />
+                    app:layout_constraintVertical_bias="0.292"
+                    app:srcCompat="@mipmap/book" />
 
                 <TextView
                     android:id="@+id/period_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/akaya_kanadaka"
                     android:text="Period"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@+id/profile"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/profile"
                     app:layout_constraintTop_toBottomOf="@+id/profile" />
 
                 <TextView
-                    android:id="@+id/assignment_titles"
+                    android:id="@+id/handout_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/akaya_kanadaka"
                     android:text="Title"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/assignment_number"
+                    app:layout_constraintEnd_toEndOf="@+id/handout_number"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/assignment_number"
-                    app:layout_constraintTop_toBottomOf="@+id/assignment_number" />
+                    app:layout_constraintStart_toStartOf="@+id/handout_number"
+                    app:layout_constraintTop_toBottomOf="@+id/handout_number" />
 
                 <TextView
-                    android:id="@+id/startDate"
+                    android:id="@+id/handout_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
                     android:fontFamily="@font/akaya_kanadaka"
-                    android:text="Start Date"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/assignment_titles"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/assignment_titles"
-                    app:layout_constraintTop_toBottomOf="@+id/assignment_titles" />
-
-                <TextView
-                    android:id="@+id/endDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:fontFamily="@font/akaya_kanadaka"
-                    android:text="End Date"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/startDate"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/startDate"
-                    app:layout_constraintTop_toBottomOf="@+id/startDate" />
-
-                <TextView
-                    android:id="@+id/assignment_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/akaya_kanadaka"
-                    android:text="Assignment No."
+                    android:text="Handout No."
                     android:textColor="@color/Black"
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/profile"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/profile" />
 
                 <Button
-                    android:id="@+id/take_button"
+                    android:id="@+id/view_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="74dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
                     android:backgroundTint="@color/Orange"
-                    android:text="Take"
+                    android:text="View"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/assignment_number"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.067" />
+                    app:layout_constraintVertical_bias="0.121" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

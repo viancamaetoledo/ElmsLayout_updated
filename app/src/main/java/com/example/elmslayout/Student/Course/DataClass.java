@@ -1,20 +1,34 @@
 package com.example.elmslayout.Student.Course;
 
 public class DataClass {
-    private String dataTitle;
-
-    public DataClass(String dataTitle){
-        this.dataTitle= dataTitle;
+    public DataClass(String subjectName, String termName) {
+        this.subjectName = subjectName;
+        this.termName = termName;
     }
 
     public DataClass() {
     }
-    public void setDataTitle(String dataTitle) {
-        this.dataTitle = dataTitle;
+
+    public String getSubjectName() {
+        return subjectName;
     }
-    public String getDataTitle() {
-        return dataTitle;
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
+
+    public String getTermName() {
+        return termName;
+    }
+
+    public void setTermName(String termName) {
+        this.termName = termName;
+    }
+
+    private String subjectName;
+    private String termName;
+
+
 
 
 

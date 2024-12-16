@@ -12,20 +12,22 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.elmslayout.R;
+import com.example.elmslayout.Teacher.CourseDetails.HandoutDet.Term_list;
 
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    private Context context;
-    private ArrayList<DataClass> dataList;
+     Context context;
+     ArrayList<DataClass> dataList;
+     String term;  // Add term field
 
-    public MyAdapter (Context context, ArrayList<DataClass> dataList){
-        this.context=context;
-        this.dataList=dataList;
-
+    // Modify constructor to accept term as well
+    public MyAdapter(Context context, ArrayList<DataClass> dataList, String term) {
+        this.context = context;
+        this.dataList = dataList;
+        this.term = term;  // Assign the passed term
     }
-
 
     @NonNull
     @Override
@@ -36,19 +38,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
         DataClass dataClass = dataList.get(position);
-        holder.recTitle.setText(dataClass.getDataTitle());
+        holder.recTitle.setText(dataClass.getSubjectName());
 
-
-        holder.recCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Handout_details.class);
-                intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getDataTitle());
-
-                context.startActivity(intent);
-            }
+        // Pass the term along with the course title to Student_handout
+        holder.recCard.setOnClickListener(v -> {
+            Intent intent = new Intent(context, term_Student_lists.class);
+            intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getSubjectName());
+            intent.putExtra("term", dataList.get(holder.getAdapterPosition()).getTermName());  // Pass the term to Student_handout
+            context.startActivity(intent);
         });
     }
 
@@ -61,14 +59,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         TextView recTitle;
         CardView recCard;
 
-
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            recTitle= itemView.findViewById(R.id.recTitle);
+            recTitle = itemView.findViewById(R.id.recTitle);
             recCard = itemView.findViewById(R.id.recCard);
-
-
         }
     }
 }

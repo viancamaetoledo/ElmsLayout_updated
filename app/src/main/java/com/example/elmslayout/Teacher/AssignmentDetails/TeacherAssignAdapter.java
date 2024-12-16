@@ -1,4 +1,4 @@
-package com.example.elmslayout.Teacher.CourseDetails;
+package com.example.elmslayout.Teacher.AssignmentDetails;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,38 +14,35 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.elmslayout.R;
 import com.example.elmslayout.Teacher.CourseDetails.HandoutDet.Term_list;
 
+
 import java.util.ArrayList;
 
-public class TeacherCourseAdapter extends RecyclerView.Adapter<TeacherCourseAdapter.TeacherCourseViewHolder> {
-
+public class TeacherAssignAdapter extends RecyclerView.Adapter<TeacherAssignAdapter.TeacherAssignViewHolder> {
     Context context;
-     ArrayList<TeacherCourseClass> dataList;
-
-    public TeacherCourseAdapter (Context context, ArrayList<TeacherCourseClass> dataList){
+    ArrayList<TeacherAssignClass> dataList;
+    public TeacherAssignAdapter (Context context, ArrayList<TeacherAssignClass> dataList){
         this.context=context;
         this.dataList=dataList;
 
     }
 
-
     @NonNull
     @Override
-    public TeacherCourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TeacherAssignAdapter.TeacherAssignViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.recycle_course_item, parent, false);
-        return new TeacherCourseViewHolder(view);
+        return new TeacherAssignAdapter.TeacherAssignViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TeacherCourseViewHolder holder, int position) {
-
-        TeacherCourseClass dataClass = dataList.get(position);
+    public void onBindViewHolder(@NonNull TeacherAssignAdapter.TeacherAssignViewHolder holder, int position) {
+        TeacherAssignClass dataClass = dataList.get(position);
         holder.recTitle.setText(dataClass.getSubjectName());
 
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Term_list.class);
+                Intent intent = new Intent(context, teacher_assign_term.class);
                 intent.putExtra("Title", dataList.get(holder.getAdapterPosition()). getSubjectName());
                 intent.putExtra("term", dataList.get(holder.getAdapterPosition()).getTermName());
 
@@ -59,19 +56,13 @@ public class TeacherCourseAdapter extends RecyclerView.Adapter<TeacherCourseAdap
         return dataList.size();
     }
 
-    public static class TeacherCourseViewHolder extends RecyclerView.ViewHolder {
+    public class TeacherAssignViewHolder extends RecyclerView.ViewHolder {
         TextView recTitle;
         CardView recCard;
-
-
-
-        public TeacherCourseViewHolder(@NonNull View itemView) {
+        public TeacherAssignViewHolder(@NonNull View itemView) {
             super(itemView);
             recTitle= itemView.findViewById(R.id.recTitle);
             recCard = itemView.findViewById(R.id.recCard);
-
-
         }
     }
 }
-

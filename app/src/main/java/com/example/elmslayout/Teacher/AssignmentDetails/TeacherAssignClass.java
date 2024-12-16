@@ -1,13 +1,7 @@
-package com.example.elmslayout.Student.Assignment;
+package com.example.elmslayout.Teacher.AssignmentDetails;
 
-public class AssignmentClass {
-    public AssignmentClass(String subjectName, String termName) {
-        this.subjectName = subjectName;
-        this.termName = termName;
-    }
-
-    public AssignmentClass() {
-    }
+public class TeacherAssignClass {
+    private String subjectName;
 
     public String getSubjectName() {
         return subjectName;
@@ -25,11 +19,11 @@ public class AssignmentClass {
         this.termName = termName;
     }
 
-     String subjectName;
-     String termName;
+    private String termName;
 
-
-
-
+    public TeacherAssignClass(String subjectName, String termName) {
+        this.subjectName = subjectName;
+        this.termName = termName;
+    }
 
 }

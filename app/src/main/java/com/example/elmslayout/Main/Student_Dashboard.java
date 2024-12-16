@@ -39,6 +39,9 @@ public class Student_Dashboard extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+    String term = "";  // Store the term
+    boolean isDataLoaded = false; // Flag to ensure data is loaded
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,39 +69,19 @@ public class Student_Dashboard extends AppCompatActivity {
 
         // Course Menu Click
         courseLayout = findViewById(R.id.student_layout);
-        courseLayout.setOnClickListener(v -> {
-            String name = studentName.getText().toString().trim();
-            Intent intent = new Intent(Student_Dashboard.this, Course_Menu.class);
-            intent.putExtra("name", name);
-            startActivity(intent);
-        });
+        courseLayout.setOnClickListener(v -> navigateToMenu(username, Course_Menu.class));
 
         // Assignment Menu Click
         assignmentLayout = findViewById(R.id.addTeacherSubject_layout);
-        assignmentLayout.setOnClickListener(v -> {
-            String name = studentName.getText().toString().trim();
-            Intent intent = new Intent(Student_Dashboard.this, Assignment_Menu.class);
-            intent.putExtra("name", name);
-            startActivity(intent);
-        });
+        assignmentLayout.setOnClickListener(v -> navigateToMenu(username, Assignment_Menu.class));
 
         // Announcement Menu Click
         announcementLayout = findViewById(R.id.announce_layout);
-        announcementLayout.setOnClickListener(v -> {
-            String name = studentName.getText().toString().trim();
-            Intent intent = new Intent(Student_Dashboard.this, Announcement_Menu.class);
-            intent.putExtra("name", name);
-            startActivity(intent);
-        });
+        announcementLayout.setOnClickListener(v -> navigateToMenu(username, Announcement_Menu.class));
 
         // Grades Menu Click
         gradesLayout = findViewById(R.id.grades_layout);
-        gradesLayout.setOnClickListener(v -> {
-            String name = studentName.getText().toString().trim();
-            Intent intent = new Intent(Student_Dashboard.this, Grade_Menu.class);
-            intent.putExtra("name", name);
-            startActivity(intent);
-        });
+        gradesLayout.setOnClickListener(v -> navigateToMenu(username, Grade_Menu.class));
 
         // Profile Click
         userProfile = findViewById(R.id.user_profile_img);
@@ -107,6 +90,18 @@ public class Student_Dashboard extends AppCompatActivity {
             intent.putExtra("username", username);
             startActivity(intent);
         });
+    }
+
+    private void navigateToMenu(String username, Class<?> destination) {
+        if (!isDataLoaded || term.isEmpty()) {
+            Toast.makeText(this, "Please wait, data is still loading...", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Intent intent = new Intent(Student_Dashboard.this, destination);
+        intent.putExtra("username", username);
+        intent.putExtra("term", term);
+        startActivity(intent);
     }
 
     // Updated getData method
@@ -119,9 +114,16 @@ public class Student_Dashboard extends AppCompatActivity {
                             String studentNameFromDB = snapshot.child("name").getValue(String.class);
                             String studentProgramFromDB = snapshot.child("Program").getValue(String.class);
                             String studentYearFromDB = snapshot.child("Year").getValue(String.class);
+                            term = snapshot.child("Semester").getValue(String.class);  // Retrieve term from the database
+
+                            if (term == null || term.isEmpty()) {
+                                term = "Default Term";  // Fallback value
+                            }
 
                             studentName.setText(studentNameFromDB);
                             studentCourseYear.setText(studentProgramFromDB + " - " + studentYearFromDB);
+
+                            isDataLoaded = true; // Set flag to true
                         } else {
                             Toast.makeText(Student_Dashboard.this, "User data not found", Toast.LENGTH_SHORT).show();
                         }

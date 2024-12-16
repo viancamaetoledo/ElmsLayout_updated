@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.elmslayout.R;
 import com.example.elmslayout.Teacher.CourseDetails.Teacher_course;
-import com.example.elmslayout.Teacher.Teacher_assignment;
+import com.example.elmslayout.Teacher.AssignmentDetails.Teacher_assignment;
 import com.example.elmslayout.Teacher.Teacher_grade;
 import com.example.elmslayout.Teacher.Teacher_student;
 import com.google.firebase.database.DataSnapshot;

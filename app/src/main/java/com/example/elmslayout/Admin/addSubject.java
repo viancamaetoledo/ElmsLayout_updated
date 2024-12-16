@@ -43,7 +43,7 @@ public class addSubject extends AppCompatActivity {
 
         // Initialize Lists
         studentList = new ArrayList<>();
-        usernameList = new ArrayList<>(); // Store usernames
+        usernameList = new ArrayList<>();
         subjectList = new ArrayList<>();
         termList = new ArrayList<>();
 
@@ -53,15 +53,9 @@ public class addSubject extends AppCompatActivity {
         loadSemesters();
 
         // Add Button Click Listener
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addSubjectToStudent();
-            }
-        });
+        addButton.setOnClickListener(view -> addSubjectToStudent());
     }
 
-    // Load Students with Usernames
     private void loadStudents() {
         databaseReference.child("User").child("Role").child("Student")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -133,33 +127,33 @@ public class addSubject extends AppCompatActivity {
                 });
     }
 
-    // Add Subject to Student's Term using Username
     private void addSubjectToStudent() {
+        // Ensure valid selections
+        if (studentSpinner.getSelectedItem() == null ||
+                subjectSpinner.getSelectedItem() == null ||
+                termSpinner.getSelectedItem() == null) {
+            showToast("Please select all fields.");
+            return;
+        }
+
         int studentPosition = studentSpinner.getSelectedItemPosition();
         String username = usernameList.get(studentPosition);
         String term = termSpinner.getSelectedItem().toString();
         String subject = subjectSpinner.getSelectedItem().toString();
 
         DatabaseReference studentSubjectsRef = databaseReference.child("User")
-                .child("Role").child("Student").child(username).child("Subjects").child(term);
+                .child("Role").child("Student").child(username)
+                .child("Subjects").child(term);
 
-        // Check for Redundancy
+        // Check if subject already exists
         studentSubjectsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<String> subjects = new ArrayList<>();
-                if (snapshot.exists()) {
-                    for (DataSnapshot subjectSnapshot : snapshot.getChildren()) {
-                        String existingSubject = subjectSnapshot.getValue(String.class);
-                        subjects.add(existingSubject);
-                    }
-                }
-
-                if (subjects.contains(subject)) {
+                if (snapshot.hasChild(subject)) {
                     showToast("Subject already added to this term.");
                 } else {
-                    subjects.add(subject);
-                    studentSubjectsRef.setValue(subjects)
+                    // Add subject with boolean value `true` for clarity
+                    studentSubjectsRef.child(subject).setValue(true)
                             .addOnSuccessListener(aVoid -> showToast("Subject added successfully!"))
                             .addOnFailureListener(e -> showToast("Failed to add subject."));
                 }

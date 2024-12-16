@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Handout No."
+        android:textSize="18sp"
+        android:textColor="@color/Black"
+        android:id="@+id/handout_number"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Title"
+        android:textSize="18sp"
+        android:id="@+id/handout_titles"
+        android:layout_below="@+id/handout_number"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:id="@+id/filePath"
+        android:layout_below="@+id/handout_titles">
+        <EditText
+            android:id="@+id/pathFile"
+            android:layout_width="0dp"
+            android:textSize="18sp"
+            android:layout_height="48dp"
+            android:hint="File Path"
+            android:layout_weight="5"/>
+
+        <Button
+            android:id="@+id/browse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Browse"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

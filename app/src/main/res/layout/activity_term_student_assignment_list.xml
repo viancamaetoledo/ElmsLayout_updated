@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/blankgrid"
     android:orientation="vertical"
-    tools:context=".Teacher.CourseDetails.HandoutDet.Term_list">
+    tools:context=".Student.Assignment.term_Student_assignment_list">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -32,6 +32,7 @@ public class Announcement_Menu extends AppCompatActivity {
     MyAdapter adapter;
     SearchView searchView;
     DatabaseReference databaseReference;
+    String term;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +47,9 @@ public class Announcement_Menu extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycle_courseview);
         searchView = findViewById(R.id.searching);
-
+        term = getIntent().getStringExtra("term");
         datalist = new ArrayList<>();
-        adapter = new MyAdapter(this, datalist);
+        adapter = new MyAdapter(this, datalist, term);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -71,7 +72,7 @@ public class Announcement_Menu extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchlist(newText);
+
                 return true;
             }
         });
@@ -97,8 +98,8 @@ public class Announcement_Menu extends AppCompatActivity {
 
 
                             // Add the subject and terms to the list
-                            DataClass data = new DataClass(subjectTitle);
-                            datalist.add(data);
+                       //     DataClass data = new DataClass(subjectTitle);
+                      //      datalist.add(data);
                         }
 
                         // Notify adapter and break after finding the user
@@ -117,21 +118,5 @@ public class Announcement_Menu extends AppCompatActivity {
                 Toast.makeText(Announcement_Menu.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-
-
-    private void searchlist(String text) {
-        List<DataClass> dataSearchList = new ArrayList<>();
-        for (DataClass data : datalist) {
-            if (data.getDataTitle().toLowerCase().contains(text.toLowerCase())) {
-                dataSearchList.add(data);
-            }
-        }
-        if (dataSearchList.isEmpty()) {
-            Toast.makeText(this, "Not Found", Toast.LENGTH_SHORT).show();
-        } else {
-            //  adapter.setSearchlist(dataSearchList);
-        }
     }
 }

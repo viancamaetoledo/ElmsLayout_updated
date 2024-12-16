@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +18,34 @@
         android:theme="@style/Theme.ElmsLayout"
         tools:targetApi="31">
         <activity
-            android:name=".Teacher.CourseDetails.Term_list"
+            android:name=".Student.Assignment.term_Student_assignment_list"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Assignment.Student_assignment"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.AssignmentDetails.TakeAssignment"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.AssignmentDetails.assignment_dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.AssignmentDetails.teacher_assign_term"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Course.term_Student_lists"
+            android:exported="false" />
+        <activity
+            android:name=".Student.Course.Student_handout"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.CourseDetails.HandoutDet.ViewHandoutDetails"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.CourseDetails.HandoutDet.Handouts"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.CourseDetails.HandoutDet.Term_list"
             android:exported="false" />
         <activity
             android:name=".Teacher.Teacher_student"
@@ -36,16 +66,13 @@
             android:name=".Teacher.Teacher_grade"
             android:exported="false" />
         <activity
-            android:name=".Teacher.Teacher_assignment"
+            android:name=".Teacher.AssignmentDetails.Teacher_assignment"
             android:exported="false" />
         <activity
             android:name=".Teacher.CourseDetails.Teacher_course"
             android:exported="false" />
         <activity
             android:name=".Student.Assignment.Assignment_detailed"
-            android:exported="false" />
-        <activity
-            android:name=".Student.Assignment.Assignment_list"
             android:exported="false" />
         <activity
             android:name=".Admin.Admin_Dashboard"

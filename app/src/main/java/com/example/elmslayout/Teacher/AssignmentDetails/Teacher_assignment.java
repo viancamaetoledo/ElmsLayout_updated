@@ -1,4 +1,4 @@
-package com.example.elmslayout.Teacher.CourseDetails;
+package com.example.elmslayout.Teacher.AssignmentDetails;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.elmslayout.R;
 import com.example.elmslayout.Teacher.CourseDetails.HandoutDet.Term_list;
+import com.example.elmslayout.Teacher.CourseDetails.TeacherCourseClass;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,11 +25,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Teacher_course extends AppCompatActivity {
+public class Teacher_assignment extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<TeacherCourseClass> datalist;
-    TeacherCourseAdapter adapter;
+    ArrayList<TeacherAssignClass> datalist;
+    TeacherAssignAdapter adapter;
     SearchView searchView;
     DatabaseReference databaseReference;
 
@@ -36,7 +37,7 @@ public class Teacher_course extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_teacher_course);
+        setContentView(R.layout.activity_teacher_assignment);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -50,7 +51,7 @@ public class Teacher_course extends AppCompatActivity {
 
         // Setup RecyclerView
         datalist = new ArrayList<>();
-        adapter = new TeacherCourseAdapter(this, datalist);
+        adapter = new TeacherAssignAdapter(this, datalist);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -100,7 +101,7 @@ public class Teacher_course extends AppCompatActivity {
                         for (DataSnapshot subjectSnapshot : termSnapshot.getChildren()) {
                             String subjectName = subjectSnapshot.getKey(); // e.g., "Advanced Database System"
 
-                            datalist.add(new TeacherCourseClass(subjectName, termName));
+                            datalist.add(new TeacherAssignClass(subjectName, termName));
                         }
                     }
 
@@ -127,12 +128,6 @@ public class Teacher_course extends AppCompatActivity {
 //       adapter.setFilteredList(filteredList); // Update adapter with filtered list
 //    }
 
-    private void onCourseClick(String subjectName, String termName) {
-        Intent intent = new Intent(Teacher_course.this, Term_list.class);
-        intent.putExtra("subjectName", subjectName);
-        intent.putExtra("termName", termName);
-        startActivity(intent);
-    }
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

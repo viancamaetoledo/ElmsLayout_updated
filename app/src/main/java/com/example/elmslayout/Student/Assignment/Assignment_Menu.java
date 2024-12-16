@@ -27,84 +27,76 @@ public class Assignment_Menu extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<AssignmentClass> datalist;
     AssMyAdapter adapter;
-    SearchView searchView;
-    DatabaseReference databaseReference;
+    String term;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_assignment_menu);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        term = getIntent().getStringExtra("term");
 
+        // Initialize UI components
         recyclerView = findViewById(R.id.recycle_courseview);
-        searchView = findViewById(R.id.searching);
-
         datalist = new ArrayList<>();
-        adapter = new AssMyAdapter(this, datalist);
+        adapter = new AssMyAdapter(this, datalist , term);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
+        // Fetch username from intent
+        String username = getIntent().getStringExtra("username");
 
-        String name = getIntent().getStringExtra("name");
-
-        if (name != null) {
-            fetchSubjects(name); // Fetch the subjects for this name
+        if (username != null) {
+            fetchSubjects(username); // Fetch subjects for this username
         } else {
-            Toast.makeText(this, "No name passed!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error: Missing username!", Toast.LENGTH_SHORT).show();
         }
-
-
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return true;
-            }
-        });
     }
 
-    private void fetchSubjects(String name) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
+    // Function to get Firebase reference for the student
+    private DatabaseReference getStudentReference(String username) {
+        return FirebaseDatabase.getInstance()
+                .getReference("User")
+                .child("Role")
+                .child("Student")
+                .child(username)
+                .child("Subjects");
+    }
 
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+    // Fetch subjects for the specified user
+    private void fetchSubjects(String username) {
+        DatabaseReference reference = getStudentReference(username);
+
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                datalist.clear(); // Clear the list before adding new data
+                datalist.clear();
 
-                for (DataSnapshot userSnapshot : snapshot.getChildren()) {
-                    String dbName = userSnapshot.child("name").getValue(String.class);
+                if (snapshot.exists()) {
+                    // Loop through each term (child)
+                    for (DataSnapshot termSnapshot : snapshot.getChildren()) {
+                        String termName = termSnapshot.getKey(); // Get the term name
 
-                    if (dbName != null && dbName.equalsIgnoreCase(name)) {
-                        // Found the user, fetch their subjects
-                        DataSnapshot subjectsSnapshot = userSnapshot.child("subject");
+                        // Loop through each subject in the term
+                        for (DataSnapshot subjectSnapshot : termSnapshot.getChildren()) {
+                            String subjectTitle = subjectSnapshot.getKey(); // Get the subject name
+                            Boolean isEnrolled = subjectSnapshot.getValue(Boolean.class); // Check enrollment status
 
-                        for (DataSnapshot subjectSnapshot : subjectsSnapshot.getChildren()) {
-                            String subjectTitle = subjectSnapshot.getKey(); // Subject name
-
-
-                            // Add the subject and terms to the list
-                            AssignmentClass data = new AssignmentClass(subjectTitle, "Term 1"); //balikan kita
-                            datalist.add(data);
+                            if (isEnrolled != null && isEnrolled) {
+                                // Add the subject and term to the list
+                                datalist.add(new AssignmentClass(subjectTitle, termName));
+                            }
                         }
-
-                        // Notify adapter and break after finding the user
-                        adapter.notifyDataSetChanged();
-                        break;
                     }
-                }
-
-                if (datalist.isEmpty()) {
-                    Toast.makeText(Assignment_Menu.this, "No subjects found for " + name, Toast.LENGTH_SHORT).show();
+                    adapter.notifyDataSetChanged(); // Notify adapter about the data change
+                } else {
+                    Toast.makeText(Assignment_Menu.this, "No subjects found for this user.", Toast.LENGTH_SHORT).show();
                 }
             }
 
