@@ -42,7 +42,8 @@ public class AssMyAdapter extends RecyclerView.Adapter<AssMyAdapter.MyViewHolder
         holder.recCard.setOnClickListener(v -> {
             Intent intent = new Intent(context, term_Student_assignment_list.class);
             intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getSubjectName());
-            intent.putExtra("term", dataList.get(holder.getAdapterPosition()).getTermName());  // Pass the term to Student_handout
+            intent.putExtra("term", dataList.get(holder.getAdapterPosition()).getTermName());
+            intent.putExtra("username", dataList.get(holder.getAdapterPosition()).getUsername());// Pass the term to Student_handout
             context.startActivity(intent);
         });
     }

@@ -1,4 +1,4 @@
-package com.example.elmslayout.Student.Assignment;
+package com.example.elmslayout.Teacher.GradeDetails;
 
 import android.os.Bundle;
 
@@ -10,13 +10,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.elmslayout.R;
 
-public class Assignment_detailed extends AppCompatActivity {
+public class Grade_Student_List extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_assignment_detailed);
+        setContentView(R.layout.activity_grade_student_list);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="220dp"
         android:fontFamily="sans-serif-black"
-        android:text="Student Name"
+        android:text="User Name"
         android:textColor="@color/Black"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -90,7 +90,7 @@ public class Assignment_Menu extends AppCompatActivity {
 
                             if (isEnrolled != null && isEnrolled) {
                                 // Add the subject and term to the list
-                                datalist.add(new AssignmentClass(subjectTitle, termName));
+                                datalist.add(new AssignmentClass(subjectTitle, termName, username));
                             }
                         }
                     }

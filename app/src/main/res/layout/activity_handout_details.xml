@@ -7,18 +7,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/blankgrid"
+    android:layout_margin="10dp"
     tools:context=".Student.Course.Handout_details">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailedTitle"
-        android:layout_marginTop="14dp"
-        android:text="Title"
-        android:textSize="24sp"
-        android:layout_gravity="center"
-        android:textColor="@color/DarkRed"
-        android:layout_marginBottom="12dp" />
+    <ImageView
+        android:id="@+id/backpressed"
+        android:layout_width="53dp"
+        android:layout_height="61dp"
+        android:clickable="true"
+        android:src="@drawable/baseline_arrow_back_24" />
 
     <ImageView
         android:layout_width="400dp"
@@ -28,14 +26,42 @@
         android:layout_gravity="center"
         android:src="@drawable/rec_holder"
         android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/detailedTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="12dp"
+        android:text="Title"
+        android:textColor="@color/DarkRed"
+        android:background="@drawable/date_border"
+        android:textSize="24sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/detailedDesc"
+        android:id="@+id/handout_number"
         android:layout_marginTop="10dp"
-        android:text="Description"
-        android:textSize="18sp"
-        android:padding="20dp"
-        android:textColor="@color/DarkRed" />
+        android:text="Handout No."
+        android:textSize="21sp"
+        android:padding="10dp"
+        android:textColor="@color/DarkRed"
+        android:background="@drawable/date_border"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linkFilePath"
+        android:layout_marginTop="10dp"
+        android:text="Link File"
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:background="@drawable/date_border"
+        />
 
   </LinearLayout>

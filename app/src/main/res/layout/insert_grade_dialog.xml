@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="10dp"
+    android:orientation="vertical"
+    android:layout_marginEnd="10dp">
+
+    <TextView
+        android:id="@+id/term_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/date_border"
+        android:hint="Term"
+        android:padding="5dp"
+        android:textColor="@color/Black"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/subjectTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/date_border"
+        android:hint="Subject Title"
+        android:padding="5dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/period_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/assignment_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/date_border"
+        android:hint="Period"
+        android:padding="5dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/studentUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/assignment_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/date_border"
+        android:hint="Student Username"
+        android:padding="5dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/submmittedFilePath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/assignment_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/date_border"
+        android:hint="FilePath"
+        android:padding="5dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/submittedDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/assignment_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/date_border"
+        android:hint="Submitted Date"
+        android:padding="5dp"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/grade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/assignment_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/date_border"
+        android:hint="Final Grade"
+        android:padding="5dp"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/giveGradeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/Orange"
+        android:text="Give Grade" />
+
+
+</LinearLayout>

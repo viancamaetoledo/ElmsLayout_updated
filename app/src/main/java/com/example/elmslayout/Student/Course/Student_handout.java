@@ -123,11 +123,12 @@ public class Student_handout extends AppCompatActivity {
 
             // View Button Click Listener
             holder.viewButton.setOnClickListener(v -> {
-                Intent intent = new Intent(context, ViewHandoutDetails.class);
+                Intent intent = new Intent(context, Handout_details.class);
                 intent.putExtra("handoutNo", handout.getHandoutNo());
-                intent.putExtra("title", handout.getTitle());
+                intent.putExtra("titles", handout.getTitle());
                 intent.putExtra("period", handout.getPeriod());
-                intent.putExtra("filePath", handout.getFilePath()); // Optional: Pass file path
+                intent.putExtra("filePath", handout.getFilePath());
+                // Optional: Pass file path
                 context.startActivity(intent); // Use context to start the activity
             });
         }

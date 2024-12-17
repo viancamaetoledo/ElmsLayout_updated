@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/student_course_year">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/assign_layout"
+                android:layout_width="0dp"
+                android:layout_height="185dp"
+                android:layout_margin="10dp"
+                android:layout_weight="3"
+                android:background="@drawable/user_choice_bg"
+                android:clickable="true">
+
+
+                <ImageView
+                    android:id="@+id/profile"
+                    android:layout_width="51dp"
+                    android:layout_height="57dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.018"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@mipmap/grades" />
+
+                <TextView
+                    android:id="@+id/period_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="Period"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/profile"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/profile"
+                    app:layout_constraintTop_toBottomOf="@+id/profile" />
+
+                <TextView
+                    android:id="@+id/term_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="Term"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/subject_title"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/subject_title"
+                    app:layout_constraintTop_toBottomOf="@+id/subject_title" />
+
+                <TextView
+                    android:id="@+id/studentUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="Student Username"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/term_Title"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/term_Title"
+                    app:layout_constraintTop_toBottomOf="@+id/term_Title" />
+
+                <TextView
+                    android:id="@+id/submittedDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="Submitted Date"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/studentUsername"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/studentUsername"
+                    app:layout_constraintTop_toBottomOf="@+id/studentUsername" />
+
+                <TextView
+                    android:id="@+id/valueScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="Score"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/grade_button"
+                    app:layout_constraintEnd_toEndOf="@+id/grade_button"
+                    app:layout_constraintHorizontal_bias="0.511"
+                    app:layout_constraintStart_toStartOf="@+id/grade_button" />
+
+                <TextView
+                    android:id="@+id/subject_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/akaya_kanadaka"
+                    android:text="Subject Title"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/profile"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/grade_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="74dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/Orange"
+                    android:text="Grade"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/subject_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.829" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

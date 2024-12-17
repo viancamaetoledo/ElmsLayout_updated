@@ -58,6 +58,7 @@ public class assignment_dashboard extends AppCompatActivity {
         String period = getIntent().getStringExtra("period");
         String term = getIntent().getStringExtra("term");
         String subjectTitle = getIntent().getStringExtra("Title");
+        String username = getIntent().getStringExtra("username");
 
         if (term != null && subjectTitle != null) {
             databaseReference = FirebaseDatabase.getInstance()
@@ -167,7 +168,11 @@ public class assignment_dashboard extends AppCompatActivity {
                 intent.putExtra("startDate", assignment.getStartDate());
                 intent.putExtra("period", assignment.getPeriod());
                 intent.putExtra("endDate", assignment.getEndDate());
-                intent.putExtra("filePath", assignment.getFilePath()); // Optional: Pass file path
+                intent.putExtra("filePath", assignment.getFilePath());
+                intent.putExtra("subjectTitle", getIntent().getStringExtra("Title"));
+                intent.putExtra("term", getIntent().getStringExtra("term"));
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                intent.putExtra("assignmentId", assignment.getId());
                 context.startActivity(intent);
             });
         }

@@ -5,6 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Student.Assignment.Assignment_detailed">
+    tools:context=".Student.Assignment.submit_Assignment">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

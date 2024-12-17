@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
@@ -77,7 +78,16 @@ public class Student_Dashboard extends AppCompatActivity {
 
         // Announcement Menu Click
         announcementLayout = findViewById(R.id.announce_layout);
-        announcementLayout.setOnClickListener(v -> navigateToMenu(username, Announcement_Menu.class));
+        announcementLayout.setOnClickListener(v -> {
+            new AlertDialog.Builder(Student_Dashboard.this)
+                    .setTitle("Feature Coming Soon")
+                    .setMessage("This feature will be available soon.")
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        // Dismiss the dialog
+                        dialog.dismiss();
+                    })
+                    .show();
+        });
 
         // Grades Menu Click
         gradesLayout = findViewById(R.id.grades_layout);
@@ -88,6 +98,7 @@ public class Student_Dashboard extends AppCompatActivity {
         userProfile.setOnClickListener(v -> {
             Intent intent = new Intent(Student_Dashboard.this, User_Profile.class);
             intent.putExtra("username", username);
+            intent.putExtra("role", "Student");
             startActivity(intent);
         });
     }
@@ -112,8 +123,8 @@ public class Student_Dashboard extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {
                             String studentNameFromDB = snapshot.child("name").getValue(String.class);
-                            String studentProgramFromDB = snapshot.child("Program").getValue(String.class);
-                            String studentYearFromDB = snapshot.child("Year").getValue(String.class);
+                            String studentProgramFromDB = snapshot.child("course").getValue(String.class);
+                            String studentYearFromDB = snapshot.child("year").getValue(String.class);
                             term = snapshot.child("Semester").getValue(String.class);  // Retrieve term from the database
 
                             if (term == null || term.isEmpty()) {

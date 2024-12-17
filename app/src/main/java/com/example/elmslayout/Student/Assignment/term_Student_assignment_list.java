@@ -47,6 +47,7 @@ public class term_Student_assignment_list extends AppCompatActivity {
 
         String subjectName = getIntent().getStringExtra("Title");
         String termName = getIntent().getStringExtra("term");
+        String username = getIntent().getStringExtra("username");
 
         if (subjectName != null) {
             subjectTitles.setText(subjectName);
@@ -66,6 +67,7 @@ public class term_Student_assignment_list extends AppCompatActivity {
                 intent.putExtra("period", prelims);
                 intent.putExtra("Title", subjectName);
                 intent.putExtra("term", termName);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
         });
@@ -76,6 +78,7 @@ public class term_Student_assignment_list extends AppCompatActivity {
                 intent.putExtra("period", midterms);
                 intent.putExtra("Title", subjectName);
                 intent.putExtra("term", termName);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
         });
@@ -86,6 +89,7 @@ public class term_Student_assignment_list extends AppCompatActivity {
                 intent.putExtra("period", finals);
                 intent.putExtra("Title", subjectName);
                 intent.putExtra("term", termName);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
         });

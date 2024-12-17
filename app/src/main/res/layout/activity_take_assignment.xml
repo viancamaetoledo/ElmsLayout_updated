@@ -1,10 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context=".Teacher.AssignmentDetails.TakeAssignment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/backpressed"
+        android:layout_width="53dp"
+        android:layout_height="61dp"
+        android:clickable="true"
+        android:src="@drawable/baseline_arrow_back_24" />
+
+
+    <TextView
+        android:id="@+id/terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:text="Term"
+        android:textColor="@color/Black"
+        android:textSize="21sp" />
+
+    <TextView
+        android:id="@+id/subjectTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:text="Subject Title"
+        android:textColor="@color/Black"
+        android:textSize="21sp" />
+
+
+    <TextView
+        android:id="@+id/assignment_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="Assignment No."
+        android:textColor="@color/Black"
+        android:textSize="21sp" />
+
+    <TextView
+        android:id="@+id/detailedTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="12dp"
+        android:padding="5dp"
+        android:text="Title"
+        android:textColor="@color/Black"
+        android:background="@color/PapayaWhip"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="Instructions:"
+        android:textColor="@color/Black"
+        android:textSize="21sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linkFilePath"
+        android:text="Link File"
+        android:textSize="24sp"
+        android:padding="5dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:background="@drawable/date_border"
+        />
+
+    <Button
+        android:id="@+id/prepareAnswerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Orange"
+        android:drawableLeft="@drawable/baseline_add_24"
+        android:text="Prepare answer"
+        android:textSize="21sp" />
+    <TextView
+        android:id="@+id/submittedFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="Submitted File:"
+        android:textColor="@color/Black"
+        android:textSize="21sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submittedLinkFilePath"
+        android:text="Link File"
+        android:textSize="24sp"
+        android:padding="5dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:background="@drawable/date_border"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/orange_border"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="Duration:"
+            android:textColor="@color/Black"
+            android:textSize="21sp" />
+
+
+        <TextView
+            android:id="@+id/StartDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="12dp"
+            android:drawableLeft="@drawable/baseline_calendar_month_24"
+            android:drawablePadding="10dp"
+            android:padding="5dp"
+            android:text="Start Date:"
+            android:textColor="@color/Black"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/EndDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="12dp"
+            android:drawableLeft="@drawable/baseline_calendar_month_24"
+            android:drawablePadding="10dp"
+            android:padding="5dp"
+            android:text="End Date:"
+            android:textColor="@color/Black"
+            android:textSize="21sp" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/orange_border"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ScoreTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="Score:"
+            android:textColor="@color/Black"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/seeScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="12dp"
+            android:drawableLeft="@drawable/baseline_grading_24"
+            android:drawablePadding="10dp"
+            android:padding="5dp"
+            android:text="Score"
+            android:textColor="@color/Black"
+            android:textSize="21sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/orange_border"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/SubmissionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="Submission:"
+            android:textColor="@color/Black"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/SubmittedTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="12dp"
+            android:drawablePadding="10dp"
+            android:padding="5dp"
+            android:text="Submitted Time"
+            android:textColor="@color/Black"
+            android:textSize="21sp" />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

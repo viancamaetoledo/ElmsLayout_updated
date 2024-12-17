@@ -8,13 +8,14 @@ public class AssignmentModel {
     private String id;
     private String startDate; // New field for start date
     private String endDate;   // New field for end date
+    private String score;     // New field for score
 
     // Default Constructor (Required for Firebase)
     public AssignmentModel() {
     }
 
     // Full Constructor
-    public AssignmentModel(String assignmentNo, String title, String period, String filePath, String id, String startDate, String endDate) {
+    public AssignmentModel(String assignmentNo, String title, String period, String filePath, String id, String startDate, String endDate, String score) {
         this.assignmentNo = assignmentNo;
         this.title = title;
         this.period = period;
@@ -22,6 +23,7 @@ public class AssignmentModel {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.score = score;
     }
 
     // Getters and Setters
@@ -79,5 +81,14 @@ public class AssignmentModel {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    // Getter and Setter for score
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
     }
 }

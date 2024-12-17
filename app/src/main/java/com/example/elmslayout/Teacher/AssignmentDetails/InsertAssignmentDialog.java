@@ -135,40 +135,56 @@ public class InsertAssignmentDialog extends AppCompatDialogFragment {
 
         // Validate inputs
         if (TextUtils.isEmpty(assignmentNo) || TextUtils.isEmpty(title) || TextUtils.isEmpty(endDate) || TextUtils.isEmpty(filePath)) {
-            Toast.makeText(requireContext(), "All fields are required", Toast.LENGTH_SHORT).show();
+            if (isAdded()) {  // Check if the fragment is added to the activity
+                Toast.makeText(requireContext(), "All fields are required", Toast.LENGTH_SHORT).show();
+            }
             return;
         }
 
         String id = databaseReference.push().getKey();
         if (id != null && term != null && subject != null && period != null) {
-            Assignment assignment = new Assignment(id, assignmentNo, title, startDate, endDate, filePath);
+            // Set default score to "Nothing Submitted Yet"
+            String defaultScore = "Nothing Submitted Yet";
+
+            Assignment assignment = new Assignment(id, assignmentNo, title, startDate, endDate, filePath, defaultScore);
 
             DatabaseReference assignmentRef = databaseReference.child(subject).child(term).child(period).child(id);
 
             assignmentRef.setValue(assignment)
-                    .addOnSuccessListener(aVoid ->
-                            Toast.makeText(requireContext(), "Assignment inserted successfully!", Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(e ->
-                            Toast.makeText(requireContext(), "Failed to insert: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                    .addOnSuccessListener(aVoid -> {
+                        if (isAdded()) {  // Check if the fragment is added to the activity
+                            Toast.makeText(requireContext(), "Assignment inserted successfully!", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        if (isAdded()) {  // Check if the fragment is added to the activity
+                            Toast.makeText(requireContext(), "Failed to insert: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
         } else {
-            Toast.makeText(getContext(), "Missing required arguments!", Toast.LENGTH_SHORT).show();
+            if (isAdded()) {  // Check if the fragment is added to the activity
+                Toast.makeText(getContext(), "Missing required arguments!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
+
     // Assignment model class
     public static class Assignment {
-        public String id, assignmentNo, title, startDate, endDate, filePath;
+        public String id, assignmentNo, title, startDate, endDate, filePath, score;
 
         public Assignment() {
         }
 
-        public Assignment(String id, String assignmentNo, String title, String startDate, String endDate, String filePath) {
+        public Assignment(String id, String assignmentNo, String title, String startDate, String endDate, String filePath, String score) {
             this.id = id;
             this.assignmentNo = assignmentNo;
             this.title = title;
             this.startDate = startDate;
             this.endDate = endDate;
             this.filePath = filePath;
+            this.score = score;
         }
     }
+
 }

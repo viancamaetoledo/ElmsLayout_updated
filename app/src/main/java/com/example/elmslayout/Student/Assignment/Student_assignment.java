@@ -49,16 +49,17 @@ public class Student_assignment extends AppCompatActivity {
         recyclerView = findViewById(R.id.recylerView1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Initialize handout list and adapter
+        // Initialize assignment list and adapter
         assignList = new ArrayList<>();
-        assignAdapter = new TeacherAssignAdapter(Student_assignment.this, assignList);
+        assignAdapter = new TeacherAssignAdapter(this, assignList);
         recyclerView.setAdapter(assignAdapter);
 
         // Get term and subjectTitle from Intent
         String term = getIntent().getStringExtra("term");
         String subjectTitle = getIntent().getStringExtra("Title");
+        String username = getIntent().getStringExtra("username");
 
-        if (term != null && subjectTitle != null) {
+        if (term != null && subjectTitle != null ) {
             databaseReference = FirebaseDatabase.getInstance().getReference("Assignments")
                     .child(subjectTitle)
                     .child(term);
@@ -99,7 +100,16 @@ public class Student_assignment extends AppCompatActivity {
     }
 
     private void showToast(String message) {
-        Toast.makeText(Student_assignment.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    // Add these methods here, inside Student_assignment
+    public String getSubjectTitle() {
+        return getIntent().getStringExtra("Title");
+    }
+
+    public String getTerm() {
+        return getIntent().getStringExtra("term");
     }
 
     public static class TeacherAssignAdapter extends RecyclerView.Adapter<TeacherAssignAdapter.AssignmentViewHolder> {
@@ -136,7 +146,18 @@ public class Student_assignment extends AppCompatActivity {
                 intent.putExtra("startDate", assignment.getStartDate());
                 intent.putExtra("period", assignment.getPeriod());
                 intent.putExtra("endDate", assignment.getEndDate());
-                intent.putExtra("filePath", assignment.getFilePath()); // Optional: Pass file path
+                intent.putExtra("filePath", assignment.getFilePath());
+                intent.putExtra("assignmentId",assignment.getId());
+
+
+                // Pass subjectTitle and term from Student_assignment
+                if (context instanceof Student_assignment) {
+                    Student_assignment activity = (Student_assignment) context;
+                    intent.putExtra("subjectTitle", activity.getSubjectTitle());
+                    intent.putExtra("term", activity.getTerm());
+                    intent.putExtra("username", activity.getIntent().getStringExtra("username"));
+                }
+
                 context.startActivity(intent);
             });
         }

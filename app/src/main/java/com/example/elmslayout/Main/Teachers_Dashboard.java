@@ -3,11 +3,13 @@ package com.example.elmslayout.Main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
@@ -17,7 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.elmslayout.R;
 import com.example.elmslayout.Teacher.CourseDetails.Teacher_course;
 import com.example.elmslayout.Teacher.AssignmentDetails.Teacher_assignment;
-import com.example.elmslayout.Teacher.Teacher_grade;
+import com.example.elmslayout.Teacher.GradeDetails.Teacher_grade;
 import com.example.elmslayout.Teacher.Teacher_student;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +31,7 @@ public class Teachers_Dashboard extends AppCompatActivity {
 
     private static final String ROLE_KEY = "role"; // Key for verifying the role
 
+    ImageView userProfile;
     TextView teacherName, teacherCourseInfo;
     ConstraintLayout course, assignment, news, grades, students;
 
@@ -52,6 +55,7 @@ public class Teachers_Dashboard extends AppCompatActivity {
         news = findViewById(R.id.news);
         grades = findViewById(R.id.grades);
         students = findViewById(R.id.student);
+        userProfile = findViewById(R.id.user_profile_img);
 
         teacherName = findViewById(R.id.teacher_name_text);
         teacherCourseInfo = findViewById(R.id.teacher_course_info);
@@ -75,9 +79,32 @@ public class Teachers_Dashboard extends AppCompatActivity {
         // Click listeners to navigate to other activities
         course.setOnClickListener(v -> openActivity(Teacher_course.class, username));
         assignment.setOnClickListener(v -> openActivity(Teacher_assignment.class, username));
-        news.setOnClickListener(v -> openActivity(Teacher_assignment.class, username));
-        grades.setOnClickListener(v -> openActivity(Teacher_grade.class, username));
+        news.setOnClickListener(v ->  {
+                new AlertDialog.Builder(Teachers_Dashboard.this)
+                .setTitle("Feature Coming Soon")
+                .setMessage("This feature will be available soon.")
+                .setPositiveButton("OK", (dialog, which) -> {
+                    // Dismiss the dialog
+                    dialog.dismiss();
+                })
+                .show();
+    });
+
+        grades.setOnClickListener(v -> {Intent intent = new Intent(Teachers_Dashboard.this, Teacher_grade.class);
+            intent.putExtra("period", "Prelims");
+            intent.putExtra("subjectTitle", "Advanced Database System");
+            intent.putExtra("term", "First Term");
+
+            // Pass username instead of name
+            startActivity(intent);});
         students.setOnClickListener(v -> openActivity(Teacher_student.class, username));
+
+        userProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(Teachers_Dashboard.this, User_Profile.class);
+            intent.putExtra("username", username);
+            intent.putExtra("role", "Teacher");
+            startActivity(intent);
+        });
     }
 
     // Method to fetch teacher data from Firebase
@@ -120,7 +147,11 @@ public class Teachers_Dashboard extends AppCompatActivity {
     private void openActivity(Class<?> targetActivity, String name) {
 
         Intent intent = new Intent(Teachers_Dashboard.this, targetActivity);
-        intent.putExtra("name", name); // Pass username instead of name
+        intent.putExtra("period", "Prelims");
+        intent.putExtra("subjectTitle", "Advanced Database System");
+        intent.putExtra("term", "First Term");
+
+        // Pass username instead of name
         startActivity(intent);
     }
 }
